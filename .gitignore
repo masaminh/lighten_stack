@@ -1,0 +1,23 @@
+# Coverage directory used by tools like istanbul
+coverage/
+
+# Compiled binary
+dist/
+
+# Dependency directories
+node_modules/
+# VS Code settings
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Temporary folders
+tmp/
+temp/
+
+# Test Data
+testdata/
+
+*.tsbuildinfo

@@ -1,0 +1,42 @@
+{
+  "type": "module",
+  "name": "@masaminh/lighten_stack",
+  "version": "0.1.0",
+  "description": "lighten_stack - a CLI tool for creating a single image by performing lighten blend compositing on multiple input images",
+  "author": {
+    "name": "masaminh"
+  },
+  "license": "MIT",
+  "bin": {
+    "lighten_stack": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "vitest run --coverage",
+    "lint": "gts lint",
+    "clean": "gts clean",
+    "compile": "tsc --project tsconfig.build.json",
+    "fix": "gts fix",
+    "prepare": "npm run compile",
+    "pretest": "npm run compile",
+    "posttest": "npm run lint",
+    "build": "npm run compile"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "@vitest/coverage-v8": "^3.1.2",
+    "gts": "^6.0.2",
+    "typescript": "~5.1.0",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^3.1.2"
+  },
+  "dependencies": {
+    "commander": "^13.1.0",
+    "ora": "^8.2.0",
+    "sharp": "^0.33.5"
+  }
+}
