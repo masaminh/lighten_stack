@@ -15,6 +15,11 @@
     "README.md",
     "LICENSE"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/masaminh/lighten_stack.git"
+  },
+  "homepage": "https://github.com/masaminh/lighten_stack/",
   "scripts": {
     "test": "vitest run --coverage",
     "lint": "gts lint",
