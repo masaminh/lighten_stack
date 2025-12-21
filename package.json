@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "@masaminh/lighten_stack",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "lighten_stack - a CLI tool for creating a single image by performing lighten blend compositing on multiple input images",
   "author": {
     "name": "masaminh"
