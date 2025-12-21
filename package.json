@@ -22,20 +22,22 @@
   "homepage": "https://github.com/masaminh/lighten_stack/",
   "scripts": {
     "test": "vitest run --coverage",
-    "lint": "gts lint",
-    "clean": "gts clean",
+    "lint": "eslint .",
     "compile": "tsc --project tsconfig.build.json",
-    "fix": "gts fix",
+    "fix": "eslint . --fix",
     "prepare": "npm run compile",
     "pretest": "npm run compile",
     "posttest": "npm run lint",
     "build": "npm run compile"
   },
   "devDependencies": {
+    "@tsconfig/node22": "^22.0.5",
     "@types/node": "^22.13.10",
     "@vitest/coverage-v8": "^3.1.2",
-    "gts": "^6.0.2",
-    "typescript": "~5.1.0",
+    "eslint": "^9.39.2",
+    "eslint-config-flat-gitignore": "^2.1.0",
+    "neostandard": "^0.12.2",
+    "typescript": "~5.9.3",
     "vite": "^6.4.1",
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^3.1.2"
