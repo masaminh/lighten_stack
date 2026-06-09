@@ -43,7 +43,7 @@
     "vitest": "^4.0.16"
   },
   "dependencies": {
-    "commander": "^13.1.0",
+    "commander": "^15.0.0",
     "ora": "^8.2.0",
     "sharp": "^0.33.5"
   }
