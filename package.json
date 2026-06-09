@@ -45,6 +45,6 @@
   "dependencies": {
     "commander": "^15.0.0",
     "ora": "^8.2.0",
-    "sharp": "^0.33.5"
+    "sharp": "^0.34.5"
   }
 }
