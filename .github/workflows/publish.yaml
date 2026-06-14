@@ -20,6 +20,9 @@ jobs:
           node-version-file: '.tool-versions'
           registry-url: 'https://registry.npmjs.org'
 
+      - name: Upgrade npm for trusted publishing
+        run: npm install -g npm@latest
+
       - run: npm ci
       - run: npm test
 
