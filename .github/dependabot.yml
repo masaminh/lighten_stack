@@ -7,6 +7,10 @@ updates:
       day: monday
       time: "09:00"
       timezone: Asia/Tokyo
+    cooldown:
+      semver-major-days: 7
+      semver-minor-days: 1
+      semver-patch-days: 1
     open-pull-requests-limit: 5
     labels:
       - dependencies
@@ -33,6 +37,10 @@ updates:
       day: monday
       time: "09:00"
       timezone: Asia/Tokyo
+    cooldown:
+      semver-major-days: 7
+      semver-minor-days: 1
+      semver-patch-days: 1
     open-pull-requests-limit: 5
     labels:
       - dependencies
