@@ -1,7 +1,7 @@
 import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
-import sharp from 'sharp'
+import sharp, { type OverlayOptions } from 'sharp'
 import ora from 'ora'
 
 function chunk<T> (array: T[], size: number): T[][] {
@@ -16,7 +16,7 @@ async function createLightenStackImageInternal (
 ): Promise<void> {
   const compositeImages = inFiles
     .slice(1)
-    .map<sharp.OverlayOptions>(file => ({ input: file, blend: 'lighten' }))
+    .map<OverlayOptions>(file => ({ input: file, blend: 'lighten' }))
   await sharp(inFiles[0])
     .pipelineColorspace('rgb16')
     .composite(compositeImages)

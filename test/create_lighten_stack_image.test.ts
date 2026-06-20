@@ -1,4 +1,4 @@
-import sharp from 'sharp'
+import sharp, { type Sharp } from 'sharp'
 import ora, { Ora } from 'ora'
 import { createLightenStackImage } from '@/create_lighten_stack_image.js'
 
@@ -22,7 +22,7 @@ describe('create_lighten_stack_image', () => {
       composite: vitest.fn().mockReturnThis(),
       tiff: vitest.fn().mockReturnThis(),
       toFile: vitest.fn().mockReturnThis(),
-    } as unknown as sharp.Sharp
+    } as unknown as Sharp
     const oraObject = {
       start: vitest.fn().mockReturnThis(),
       succeed: vitest.fn().mockReturnThis(),
@@ -48,7 +48,7 @@ describe('create_lighten_stack_image', () => {
       composite: vitest.fn().mockReturnThis(),
       tiff: vitest.fn().mockReturnThis(),
       toFile: vitest.fn().mockReturnThis(),
-    } as unknown as sharp.Sharp
+    } as unknown as Sharp
     const oraObject = {
       start: vitest.fn().mockReturnThis(),
       succeed: vitest.fn().mockReturnThis(),
