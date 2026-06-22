@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@tsconfig/node22": "^22.0.5",
-    "@types/node": "^22.13.10",
+    "@types/node": "^26.0.0",
     "@vitest/coverage-v8": "^4.0.16",
     "eslint": "^9.39.2",
     "eslint-config-flat-gitignore": "^2.1.0",
