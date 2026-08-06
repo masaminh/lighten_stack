@@ -39,25 +39,41 @@ export async function createLightenStackImage (
       console.debug(`work directory: ${workDirectory}`)
     }
 
-    let fileNum = 0
-    const workFilePaths = [] as string[]
+    const chunkPath = path.join(workDirectory, 'chunk.tiff')
+    const accumulatorPaths = [
+      path.join(workDirectory, 'accumulator-0.tiff'),
+      path.join(workDirectory, 'accumulator-1.tiff')
+    ]
 
-    for (const files of chunk(inFiles, 10)) {
+    const chunks = chunk(inFiles, 10)
+    let fileNum = 0
+    let accumulatorIndex: number | undefined
+
+    for (const [index, files] of chunks.entries()) {
       fileNum = fileNum + files.length
       const message = `stacking: ${fileNum} / ${inFiles.length}...`
       const spinner = ora(message).start()
-      const workFilePath = path.join(workDirectory, `${fileNum}.tiff`)
+      const isLast = index === chunks.length - 1
 
-      await createLightenStackImageInternal(workFilePath, files)
+      if (accumulatorIndex === undefined) {
+        await createLightenStackImageInternal(
+          isLast ? outFile : accumulatorPaths[0],
+          files
+        )
+        accumulatorIndex = isLast ? undefined : 0
+      } else {
+        await createLightenStackImageInternal(chunkPath, files)
 
-      workFilePaths.push(workFilePath)
+        const nextAccumulatorIndex = 1 - accumulatorIndex
+        await createLightenStackImageInternal(
+          isLast ? outFile : accumulatorPaths[nextAccumulatorIndex],
+          [accumulatorPaths[accumulatorIndex], chunkPath]
+        )
+        accumulatorIndex = isLast ? undefined : nextAccumulatorIndex
+      }
+
       spinner.succeed(message + 'done')
     }
-
-    const message = 'integrating...'
-    const spinner = ora(message).start()
-    await createLightenStackImageInternal(outFile, workFilePaths)
-    spinner.succeed(message + 'done')
   } finally {
     if (!debug) {
       await fs.promises.rm(workDirectory, { recursive: true })
