@@ -20,7 +20,9 @@ jobs:
           fetch-depth: 0 
       - uses: asdf-vm/actions/install@v4
       - name: Enable Corepack (pin npm to packageManager)
-        run: corepack enable
+        run: |
+          corepack enable
+          asdf reshim nodejs
       - name: DEBUG npm version
         run: |
           echo "which npm: $(which npm)"
