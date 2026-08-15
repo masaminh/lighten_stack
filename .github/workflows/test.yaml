@@ -21,6 +21,14 @@ jobs:
       - uses: asdf-vm/actions/install@v4
       - name: Enable Corepack (pin npm to packageManager)
         run: corepack enable
+      - name: DEBUG npm version
+        run: |
+          echo "which npm: $(which npm)"
+          echo "npm --version: $(npm --version)"
+          echo "which corepack: $(which corepack)"
+          echo "corepack --version: $(corepack --version)"
+          echo "node --version: $(node --version)"
+          cat package.json | grep packageManager
       - name: Verify package-lock.json is in sync
         run: |
           npm install --package-lock-only --ignore-scripts
