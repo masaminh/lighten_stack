@@ -43,10 +43,9 @@ updates:
       day: monday
       time: "09:00"
       timezone: Asia/Tokyo
+    # github-actions は semver-*-days 非対応のため default-days のみ指定する
     cooldown:
-      semver-major-days: 7
-      semver-minor-days: 1
-      semver-patch-days: 1
+      default-days: 7
     open-pull-requests-limit: 5
     labels:
       - dependencies
