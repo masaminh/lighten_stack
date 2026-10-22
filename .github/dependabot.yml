@@ -15,6 +15,12 @@ updates:
     labels:
       - dependencies
     groups:
+      # vitest と @vitest/* は互いを exact バージョンで peer 指定しているため、
+      # メジャー更新も含めて必ず同じ PR で上げる(dev-dependencies より先に定義する)
+      vitest:
+        patterns:
+          - "vitest"
+          - "@vitest/*"
       dev-dependencies:
         dependency-type: development
         patterns:
@@ -37,10 +43,9 @@ updates:
       day: monday
       time: "09:00"
       timezone: Asia/Tokyo
+    # github-actions は semver-*-days 非対応のため default-days のみ指定する
     cooldown:
-      semver-major-days: 7
-      semver-minor-days: 1
-      semver-patch-days: 1
+      default-days: 7
     open-pull-requests-limit: 5
     labels:
       - dependencies
